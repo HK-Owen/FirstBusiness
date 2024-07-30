@@ -27,19 +27,41 @@
             justify-content: center;
         }
         .main-title {
-            font-size: 32px;
+            font-size: 48px; /* 增大1.5倍 */
             margin-bottom: 10px;
         }
         .sub-title {
-            font-size: 18px;
+            font-size: 27px; /* 增大1.5倍 */
             margin-bottom: 20px;
         }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
         #searchInput {
-            width: 80%;
+            width: calc(160% - 40px); /* 增加2倍寬度，減去按鈕寬度 */
             padding: 10px;
-            margin: 0 auto 20px;
             font-size: 16px;
-            display: block;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px 0 0 24px;
+            outline: none;
+        }
+        #searchButton {
+            width: 40px;
+            height: 40px;
+            background-color: #f8f9fa;
+            border: 1px solid #dfe1e5;
+            border-left: none;
+            border-radius: 0 24px 24px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #searchButton:hover {
+            background-color: #f1f3f4;
         }
     </style>
 </head>
@@ -49,7 +71,14 @@
         <h1 class="main-title">僱主支援中心</h1>
         <p class="sub-title">您今天需要什麼協助？</p>
         <form id="searchForm" action="result.html" method="get">
-            <input type="text" id="searchInput" name="query" placeholder="搜尋...">
+            <div class="search-container">
+                <input type="text" id="searchInput" name="query" placeholder="搜尋...">
+                <button type="submit" id="searchButton">
+                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
+                </button>
+            </div>
         </form>
     </div>
 
