@@ -34,12 +34,10 @@
             "如何更新公司資料": "進入'公司設置'，您可以編輯公司簡介、logo和其他相關信息。",
             "如何聯繫客服": "您可以通過郵件support@example.com或撥打熱線400-123-4567聯繫我們的客服團隊。"
         };
-
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
-
         function displayResult() {
             const query = getQueryParam('query');
             const resultDiv = document.getElementById('result');
@@ -63,7 +61,6 @@
                 resultDiv.textContent = '未提供搜尋關鍵詞。';
             }
         }
-
         try {
             displayResult();
         } catch (error) {
