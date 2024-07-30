@@ -13,27 +13,28 @@
             flex-direction: column;
             align-items: center;
             position: relative; /* 使絕對定位的元素相對於此 */
+            height: 100vh; /* 設定整個視窗高度 */
         }
         .line {
             background-color: rgba(128, 128, 128, 0.7); /* 灰色 */
             width: 100vw; /* 寬度覆蓋整個視窗 */
             height: 2px; /* 線的高度 */
-            margin: 20px 0; /* 上下間距 */
+            position: absolute; /* 絕對定位 */
         }
         .vertical-line {
             background-color: rgba(128, 128, 128, 0.7); /* 灰色 */
             width: 2px; /* 線的寬度 */
             height: 100vh; /* 高度覆蓋整個視窗 */
-            position: absolute; /* 使其絕對定位 */
-            left: 33%; /* 位置調整 */
-            transform: translateX(-50%); /* 調整位置 */
+            position: absolute; /* 絕對定位 */
         }
-        .vertical-line:nth-child(4) {
-            left: 50%; /* 第二條直線 */
-        }
-        .vertical-line:nth-child(5) {
-            left: 67%; /* 第三條直線 */
-        }
+        /* 橫線的均勻分布 */
+        .line:nth-child(1) { top: 20%; }
+        .line:nth-child(2) { top: 50%; }
+        .line:nth-child(3) { top: 80%; }
+        /* 直線的均勻分布 */
+        .vertical-line:nth-child(4) { left: 25%; }
+        .vertical-line:nth-child(5) { left: 50%; }
+        .vertical-line:nth-child(6) { left: 75%; }
     </style>
 </head>
 <body>
