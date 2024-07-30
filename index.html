@@ -1,75 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>企業網站</title>
     <style>
         body {
+            background-color: rgba(0, 0, 0, 0.9); /* 全黑稍微帶灰色 */
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* 深灰色背景 */
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
-        .container {
-            width: 120%;
-            height: 70%;
-            position: relative;
-        }
-        .lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 120%;
-            height: 120%;
-            z-index: 1;
-        }
-        .horizontal-line {
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: #444;
+        .line {
+            background-color: rgba(128, 128, 128, 0.7); /* 灰色 */
+            width: 100vw; /* 寬度覆蓋整個視窗 */
+            height: 2px; /* 線的高度 */
+            margin: 20px 0; /* 上下間距 */
         }
         .vertical-line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: #444;
-        }
-        .image-container {
-            position: absolute;
-            top: 5%;
-            left: 12.5%;
-            width: 75%; /* 橫向佔四分之三 */
-            height: 75%; /* 縱向佔二十分之十八 */
-            z-index: 2;
-        }
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background-color: rgba(128, 128, 128, 0.7); /* 灰色 */
+            width: 2px; /* 線的寬度 */
+            height: 100vh; /* 高度覆蓋整個視窗 */
+            position: absolute; /* 使其絕對定位 */
+            left: 50%; /* 中央對齊 */
+            transform: translateX(-50%); /* 調整位置 */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="lines">
-            <!-- 水平線 -->
-            <div class="horizontal-line" style="top: 33%;"></div>
-            <div class="horizontal-line" style="top: 66%;"></div>
-            <!-- 垂直線 -->
-            <div class="vertical-line" style="left: 33%;"></div>
-            <div class="vertical-line" style="left: 66%;"></div>
-        </div>
-        <div class="image-container">
-            <img src="343452.jpg" alt="主圖片">
-        </div>
-    </div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="vertical-line"></div>
 </body>
 </html>
