@@ -3,70 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜尋結果 - 僱主支援中心</title>
-    <meta name="description" content="僱主支援中心搜尋結果 - 查找您需要的僱主相關資訊。">
+    <title>僱主支援中心</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 20px; 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        #result { 
-            border: 1px solid #ddd; 
-            padding: 20px; 
-            margin-top: 20px; 
+        .header {
+            background-color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
         }
-        .back-link { 
-            display: inline-block; 
-            margin-top: 20px; 
+        .signin-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        .title {
+            color: #FFD700;
+            font-size: 24px;
+        }
+        .subtitle {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 500px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 5px 15px;
+        }
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 10px;
+        }
+        .search-icon {
+            color: #9aa0a6;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>搜尋結果</h1>
-    <div id="result" role="main" aria-live="polite"></div>
-    <a href="index.html" class="back-link">返回搜尋</a>
-    <script>
-        const qa = {
-            "如何發布工作": "登入您的帳戶，點擊'發布新工作'，填寫所需信息並提交。",
-            "如何查看應聘者": "在您的儀表板上，點擊'查看應聘者'，您可以看到所有申請您職位的候選人。",
-            "如何更新公司資料": "進入'公司設置'，您可以編輯公司簡介、logo和其他相關信息。",
-            "如何聯繫客服": "您可以通過郵件support@example.com或撥打熱線400-123-4567聯繫我們的客服團隊。"
-        };
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-        function displayResult() {
-            const query = getQueryParam('query');
-            const resultDiv = document.getElementById('result');
-            if (query) {
-                let found = false;
-                for (let question in qa) {
-                    if (question.toLowerCase().includes(query.toLowerCase())) {
-                        const h2 = document.createElement('h2');
-                        h2.textContent = question;
-                        const p = document.createElement('p');
-                        p.textContent = qa[question];
-                        resultDiv.appendChild(h2);
-                        resultDiv.appendChild(p);
-                        found = true;
-                    }
-                }
-                if (!found) {
-                    resultDiv.textContent = '很抱歉，沒有找到相關結果。請嘗試其他關鍵詞或聯繫我們的客服。';
-                }
-            } else {
-                resultDiv.textContent = '未提供搜尋關鍵詞。';
-            }
-        }
-        try {
-            displayResult();
-        } catch (error) {
-            console.error('發生錯誤：', error);
-            document.getElementById('result').textContent = '搜尋過程中發生錯誤，請稍後再試。';
-        }
-    </script>
+    <div class="header">
+        <a href="signin.html" class="signin-btn">Sign In</a>
+    </div>
+    <div class="content">
+        <h1 class="title">僱主支援中心</h1>
+        <h2 class="subtitle">您今天需要什麼協助？</h2>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="搜尋">
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
 </body>
 </html>
