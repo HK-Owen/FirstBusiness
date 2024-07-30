@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>搜尋結果 - 僱主支援中心</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        #result { border: 1px solid #ddd; padding: 20px; margin-top: 20px; }
+        .back-link { display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>搜尋結果</h1>
+    <div id="result"></div>
+    <a href="index.html" class="back-link">返回搜尋</a>
+
+    <script>
+        const qa = {
+            "如何發布工作": "登入您的帳戶，點擊'發布新工作'，填寫所需信息並提交。",
+            "如何查看應聘者": "在您的儀表板上，點擊'查看應聘者'，您可以看到所有申請您職位的候選人。",
+            "如何更新公司資料": "進入'公司設置'，您可以編輯公司簡介、logo和其他相關信息。",
+            "如何聯繫客服": "您可以通過郵件support@example.com或撥打熱線400-123-4567聯繫我們的客服團隊。"
+        };
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayResult() {
+            const query = getQueryParam('query');
+            const resultDiv = document.getElementById('result');
+
+            if (query) {
+                let found = false;
+                for (let question in qa) {
+                    if (question.toLowerCase().includes(query.toLowerCase())) {
+                        resultDiv.innerHTML += `<h2>${question}</h2><p>${qa[question]}</p>`;
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    resultDiv.innerHTML = '<p>很抱歉，沒有找到相關結果。請嘗試其他關鍵詞或聯繫我們的客服。</p>';
+                }
+            } else {
+                resultDiv.innerHTML = '<p>未提供搜尋關鍵詞。</p>';
+            }
+        }
+
+        displayResult();
+    </script>
+</body>
+</html>
