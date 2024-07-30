@@ -35,6 +35,19 @@
         .vertical-line:nth-child(4) { left: 25%; }
         .vertical-line:nth-child(5) { left: 50%; }
         .vertical-line:nth-child(6) { left: 75%; }
+        /* 圖片樣式 */
+        .image-container {
+            position: absolute;
+            bottom: 0; /* 貼緊底部 */
+            right: 0; /* 貼緊右邊 */
+            width: 50vw; /* 寬度為視窗的一半 */
+            height: 50%; /* 高度為視窗的一半 */
+            overflow: hidden; /* 隱藏超出部分 */
+        }
+        .image-container img {
+            width: 100%; /* 圖片寬度填滿容器 */
+            height: auto; /* 自動調整高度 */
+        }
     </style>
 </head>
 <body>
@@ -44,5 +57,8 @@
     <div class="vertical-line"></div>
     <div class="vertical-line"></div>
     <div class="vertical-line"></div>
+    <div class="image-container">
+        <img src="343452.jpg" alt="圖片">
+    </div>
 </body>
 </html>
