@@ -4,25 +4,35 @@
     <meta charset="UTF-8">
     <title>僱主支援中心</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .container { display: flex; }
-        .sidebar { width: 200px; padding-right: 20px; }
-        .main-content { flex-grow: 1; }
-        #searchInput { width: 100%; padding: 10px; margin-bottom: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .main-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .sub-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h2>僱主支援中心</h2>
-            <p>您今天需要什麼協助？</p>
-        </div>
-        <div class="main-content">
-            <form id="searchForm" action="result.html" method="get">
-                <input type="text" id="searchInput" name="query" placeholder="搜尋...">
-            </form>
-        </div>
-    </div>
+    <h1 class="main-title">僱主支援中心</h1>
+    <p class="sub-title">您今天需要什麼協助？</p>
+    <form id="searchForm" action="result.html" method="get">
+        <input type="text" id="searchInput" name="query" placeholder="搜尋...">
+    </form>
 
     <script>
         document.getElementById('searchForm').addEventListener('submit', function(e) {
