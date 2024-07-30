@@ -3,76 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>僱主支援中心</title>
+    <title>企業網站</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        .header {
-            background-color: black;
-            padding: 10px 20px;
+            background-color: #1a1a1a; /* 深灰色背景 */
             display: flex;
-            justify-content: flex-end;
-        }
-        .signin-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            height: 80vh;
-        }
-        .title {
-            color: #FFD700;
-            font-size: 24px;
-        }
-        .subtitle {
-            font-size: 32px;
-            margin: 20px 0;
-        }
-        .search-container {
-            display: flex;
             align-items: center;
-            width: 500px;
-            border: 1px solid #dfe1e5;
-            border-radius: 24px;
-            padding: 5px 15px;
+            height: 100vh;
+            overflow: hidden;
         }
-        .search-input {
-            flex: 1;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            padding: 10px;
+        .container {
+            width: 80%;
+            height: 90%;
+            position: relative;
         }
-        .search-icon {
-            color: #9aa0a6;
-            cursor: pointer;
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .horizontal-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #444;
+        }
+        .vertical-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #444;
+        }
+        .image-container {
+            position: absolute;
+            top: 5%;
+            left: 12.5%;
+            width: 75%; /* 橫向佔四分之三 */
+            height: 90%; /* 縱向佔二十分之十八 */
+            z-index: 2;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <a href="signin.html" class="signin-btn">Sign In</a>
-    </div>
-    <div class="content">
-        <h1 class="title">僱主支援中心</h1>
-        <h2 class="subtitle">您今天需要什麼協助？</h2>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="搜尋">
-            <span class="search-icon">🔍</span>
+    <div class="container">
+        <div class="lines">
+            <!-- 水平線 -->
+            <div class="horizontal-line" style="top: 33%;"></div>
+            <div class="horizontal-line" style="top: 66%;"></div>
+            <!-- 垂直線 -->
+            <div class="vertical-line" style="left: 33%;"></div>
+            <div class="vertical-line" style="left: 66%;"></div>
+        </div>
+        <div class="image-container">
+            <img src="343452.jpg" alt="主圖片">
         </div>
     </div>
 </body>
