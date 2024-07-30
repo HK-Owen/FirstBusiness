@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>僱主支援中心</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .container { display: flex; }
+        .sidebar { width: 200px; padding-right: 20px; }
+        .main-content { flex-grow: 1; }
+        #searchInput { width: 100%; padding: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>僱主支援中心</h2>
+            <p>您今天需要什麼協助？</p>
+        </div>
+        <div class="main-content">
+            <form id="searchForm" action="result.html" method="get">
+                <input type="text" id="searchInput" name="query" placeholder="搜尋...">
+            </form>
+        </div>
+    </div>
 
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value;
+            window.location.href = `result.html?query=${encodeURIComponent(query)}`;
+        });
+    </script>
+</body>
+</html>
