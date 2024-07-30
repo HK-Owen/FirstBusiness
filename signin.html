@@ -1,72 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>登入 - 僱主支援中心</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f2f5;
         }
-        .login-container {
+        .signin-container {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 350px;
         }
-        h2 {
-            text-align: center;
-            color: #1877f2;
+        .signin-form {
+            display: flex;
+            flex-direction: column;
         }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
+        .signin-input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 4px;
         }
-        button {
+        .signin-button {
             background-color: #1877f2;
             color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
             border: none;
-            cursor: pointer;
-            width: 100%;
+            padding: 10px;
             border-radius: 4px;
-        }
-        button:hover {
-            background-color: #166fe5;
-        }
-        .forgot-password {
-            text-align: center;
-        }
-        .forgot-password a {
-            color: #1877f2;
-            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Sign In</h2>
-        <form>
-            <input type="text" placeholder="Email or Phone Number" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign In</button>
+    <div class="signin-container">
+        <form class="signin-form">
+            <input type="email" placeholder="電子郵件" class="signin-input" required>
+            <input type="password" placeholder="密碼" class="signin-input" required>
+            <button type="submit" class="signin-button">登入</button>
         </form>
-        <div class="forgot-password">
-            <a href="#">Forgot Password?</a>
-        </div>
     </div>
 </body>
 </html>
