@@ -12,6 +12,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative; /* 使絕對定位的元素相對於此 */
         }
         .line {
             background-color: rgba(128, 128, 128, 0.7); /* 灰色 */
@@ -24,8 +25,14 @@
             width: 2px; /* 線的寬度 */
             height: 100vh; /* 高度覆蓋整個視窗 */
             position: absolute; /* 使其絕對定位 */
-            left: 50%; /* 中央對齊 */
+            left: 33%; /* 位置調整 */
             transform: translateX(-50%); /* 調整位置 */
+        }
+        .vertical-line:nth-child(4) {
+            left: 50%; /* 第二條直線 */
+        }
+        .vertical-line:nth-child(5) {
+            left: 67%; /* 第三條直線 */
         }
     </style>
 </head>
@@ -33,6 +40,8 @@
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
+    <div class="vertical-line"></div>
+    <div class="vertical-line"></div>
     <div class="vertical-line"></div>
 </body>
 </html>
