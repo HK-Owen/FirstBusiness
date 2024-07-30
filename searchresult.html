@@ -2,18 +2,31 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>搜尋結果 - 僱主支援中心</title>
+    <meta name="description" content="僱主支援中心搜尋結果 - 查找您需要的僱主相關資訊。">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        #result { border: 1px solid #ddd; padding: 20px; margin-top: 20px; }
-        .back-link { display: inline-block; margin-top: 20px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        #result { 
+            border: 1px solid #ddd; 
+            padding: 20px; 
+            margin-top: 20px; 
+        }
+        .back-link { 
+            display: inline-block; 
+            margin-top: 20px; 
+        }
     </style>
 </head>
 <body>
     <h1>搜尋結果</h1>
-    <div id="result"></div>
+    <div id="result" role="main" aria-live="polite"></div>
     <a href="index.html" class="back-link">返回搜尋</a>
-
     <script>
         const qa = {
             "如何發布工作": "登入您的帳戶，點擊'發布新工作'，填寫所需信息並提交。",
@@ -30,29 +43,33 @@
         function displayResult() {
             const query = getQueryParam('query');
             const resultDiv = document.getElementById('result');
-
             if (query) {
                 let found = false;
                 for (let question in qa) {
                     if (question.toLowerCase().includes(query.toLowerCase())) {
-                        resultDiv.innerHTML += `<h2>${question}</h2><p>${qa[question]}</p>`;
+                        const h2 = document.createElement('h2');
+                        h2.textContent = question;
+                        const p = document.createElement('p');
+                        p.textContent = qa[question];
+                        resultDiv.appendChild(h2);
+                        resultDiv.appendChild(p);
                         found = true;
                     }
                 }
                 if (!found) {
-                    resultDiv.innerHTML = '<p>很抱歉，沒有找到相關結果。請嘗試其他關鍵詞或聯繫我們的客服。</p>';
+                    resultDiv.textContent = '很抱歉，沒有找到相關結果。請嘗試其他關鍵詞或聯繫我們的客服。';
                 }
             } else {
-                resultDiv.innerHTML = '<p>未提供搜尋關鍵詞。</p>';
+                resultDiv.textContent = '未提供搜尋關鍵詞。';
             }
         }
 
-        displayResult();
+        try {
+            displayResult();
+        } catch (error) {
+            console.error('發生錯誤：', error);
+            document.getElementById('result').textContent = '搜尋過程中發生錯誤，請稍後再試。';
+        }
     </script>
 </body>
 </html>
-
-#searchInput {
-    width: 160%; /* 原來的兩倍 */
-    /* 其他樣式保持不變 */
-}
